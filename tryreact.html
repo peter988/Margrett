@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      .hey{
+        color: aqua;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+<script type="text/babel">
+    // create the root ,, you can use document.body
+    let root = ReactDOM.createRoot(document.body);
+    //--------------------------------- functions
+    // create a function that takes a name and return a <p> with Hello name
+    function Hello(name){
+      return( <p> Hello {name} </p>  )
+    }
+
+    //lets create our first class
+    class One extends React.Component{
+      constructor(){
+        // here we define our variables
+        //we have to put this.---
+        super()
+        this.model = 'tesla'
+        this.myp = <p> Hello </p>
+      }
+      // now we write our JSX code >- html code / here
+      render(){
+        return( 
+          <>
+            <div>
+              {this.myp}  {/*this is <p> Hello </p> as we defined the var*/}
+              <button id='kl' className = 'hey' > my model is {this.model} </button>
+              {this.myp}
+              {Hello('peter')} {/*this is the function that we made so*/}
+                              {/*this is like <p> Hello peter </p>*/}
+              {Hello('margo')}
+            </div>
+          </>
+        )
+      }
+    }
+    // now we want to make another clas 'div' that comes after hte One class we made
+    // we dont need to add constructor as it will complete the previous code 
+    class Two extends One{
+      render(){
+        // we have to  include the one first of course < One />
+        return( 
+          <>
+            < One />
+            <div>
+              <hr></hr>
+              <p>this is the second class</p>
+            </div>
+          </>
+
+        )
+      }
+    }
+
+    // now add the class you want
+    root.render(< Two />)
+
+
+    const time = setTimeout(function(){
+
+      // Write here any normal js code
+      let but = document.getElementById('kl')
+      but.onclick = function(){
+        let p = document.createElement('p')
+        p.innerText = 'you pressed me'
+        document.body.appendChild(p)
+      }
+      
+      
+
+    clearTimeout(time)
+    },1000)
+    
+
+    //notes : 
+    //  1/ its preferable to make repeated elements as a function so you can include in a class
+    //       as much time as you want
+    //  2/ class name has to begin with a capital like : One , Two
+    //  3/ you can style css by using className for any element 
+    
+    // Enjoy :)
+
+    // copyrights belongs to peter //
+
+
+    
+</script>
+
+
+
+
+  </body>
+</html>

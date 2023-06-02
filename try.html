@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a,p{
+            display: inline;
+            text-decoration: none;
+            color: white;
+            margin-left: 100px;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+        .nav{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="jk">Work with me </button>
+
+    <script type="text/babel" >
+        function but (){
+            return( 
+                <button>Work with me</button>
+            )
+        }
+
+        class Mar extends React.Component{
+            constructor(){
+                super()
+                this.mar = 'margret'
+                this.pro = 'projects'
+                this.but1 = but() 
+                this. but2 = <button>Submit</button>
+            }
+            render(){
+                return(
+                <div id='nav' className='nav'>
+                    <input type="text"/>
+                    <input type="text"/>
+                    <input type="text"/>
+                    <input type="text"/>
+                    {this.but2}
+                    <button id='po'>X</button>
+                </div>
+
+                )
+            }
+
+        }
+
+        document.getElementById('jk').onclick = function(){
+            let root = ReactDOM.createRoot(document.body);
+              root.render(<Mar />)
+              setTimeout(function(){
+                document.getElementById('po').onclick= function(){
+                document.body.removeChild( document.getElementById('nav') )}
+              },1000)
+
+            }
+        
+
+
+
+
+        
+
+     </script>
+    
+</body>
+</html>
